@@ -3,6 +3,7 @@ import 'flatpickr/dist/flatpickr.min.css';
 import Notiflix from 'notiflix';
 import 'notiflix/dist/notiflix-3.2.5.min.css';
 const refs = {
+  dateTimePicker: document.querySelector('#datetime-picker'),
   BtnStartEl: document.querySelector('button[data-start]'),
   inputDays: document.querySelector('.field [data-days]'),
   inputHours: document.querySelector('.field [data-hours]'),
@@ -10,7 +11,7 @@ const refs = {
   inputSeconds: document.querySelector('.field [data-seconds]'),
 };
 
-refs.BtnStartEl.disabled = 'disabled';
+refs.BtnStartEl.disabled = true;
 const SELECTED_DATA = 'selected-data-item';
 const options = {
   enableTime: true,
@@ -57,6 +58,7 @@ class Timer {
     }, ACTION_DELAY);
 
     refs.BtnStartEl.disabled = 'disabled';
+    refs.dateTimePicker.disabled = 'disabled';
   }
   convertMs(ms) {
     const second = 1000;
